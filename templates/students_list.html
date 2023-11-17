@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Список учащихся</h1>
+    <ul>
+        {% for student in students %}
+            <li>
+                 {% if student.image %}
+            <img src="{{ student.image.url }}" alt="{{ student.first_name }} {{ student.last_name }}" style="max-width: 100px; max-height: 100px;">
+        {% else %}
+            <img src="/media/student_images/9TyQDVT0.jpg" alt="No Image" style="max-width: 100px; max-height: 100px;">
+        {% endif %}
+                {{ student.first_name }} {{ student.last_name }} - <a href="{% url 'edit_student' student.id %}">Редактировать</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_student' %}">Добавить учащегося</a>
+</body>
+</html>
