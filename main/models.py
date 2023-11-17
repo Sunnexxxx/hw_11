@@ -19,7 +19,7 @@ class Student(models.Model):
     age = models.IntegerField()
     course = models.CharField(max_length=2, choices=COURSES_CHOICES)
     instrument = models.CharField(max_length=10, choices=INSTRUMENT_CHOICES)
-    performance = models.IntegerField(default=1, help_text='От 1 до 12')
+    performance = models.PositiveIntegerField(default=1, help_text='От 1 до 12')
     payment_status = models.BooleanField(default=False)
     image = models.ImageField(upload_to='student_images/', blank=True, null=True)
 
