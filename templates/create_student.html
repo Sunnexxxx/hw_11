@@ -6,6 +6,7 @@
 <h1>Добавление учащегося</h1>
     <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
+        <div class="create">
         <label for="first_name">Имя:</label>
         <input type="text" name="first_name" required><br>
         <label for="last_name">Фамилия:</label>
@@ -25,11 +26,24 @@
             <option value="violin">Скрипка</option>
         </select><br>
         <label for="performance">Успеваемость:</label>
-        <input type="number" name="performance" required><br>
+        <select name="performance" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+        </select><br>
         <label for="payment_status">Оплатил/не оплатил обучение:</label>
         <input type="checkbox" name="payment_status"><br>
         <label for="image">Загрузить изображение:</label>
         <input type="file" name="image"><br>
         <button type="submit">Добавить</button>
+        </div>
     </form>
 {% endblock %}

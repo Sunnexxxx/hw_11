@@ -7,6 +7,15 @@ def students_list(request):
     return render(request, 'students_list.html', {'students': students})
 
 
+def student_detail(request, student_id):
+    try:
+        student = Student.objects.get(id=student_id)
+    except Student.DoesNotExist:
+        return redirect('students_list')
+
+    return render(request, 'student_detail.html', {'student': student})
+
+
 def edit_student(request, student_id):
     try:
         student = Student.objects.get(id=student_id)

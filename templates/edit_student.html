@@ -6,6 +6,7 @@
 <h1>Редактирование данных учащегося</h1>
     <form method="post"  enctype="multipart/form-data">
         {% csrf_token %}
+    <div class="edit">
         <label for="first_name">Имя:</label>
         <input type="text" name="first_name" value="{{ student.first_name }}" required><br>
         <label for="last_name">Фамилия:</label>
@@ -25,11 +26,26 @@
             <option value="violin" {% if student.instrument == "violin" %}selected{% endif %}>Скрипка</option>
         </select><br>
         <label for="performance">Успеваемость:</label>
-        <input type="number" name="performance" value="{{ student.performance }}" required><br>
+        <select name="performance" required>
+            <option value="1" {% if student.performance == "1" %}selected{% endif %}>1</option>
+            <option value="2" {% if student.performance == "2" %}selected{% endif %}>2</option>
+            <option value="3" {% if student.performance == "3" %}selected{% endif %}>3</option>
+            <option value="4" {% if student.performance == "4" %}selected{% endif %}>4</option>
+            <option value="5" {% if student.performance == "5" %}selected{% endif %}>5</option>
+            <option value="6" {% if student.performance == "6" %}selected{% endif %}>6</option>
+            <option value="7" {% if student.performance == "7"%}selected{% endif %}>7</option>
+            <option value="8" {% if student.performance == "8"%}selected{% endif %}>8</option>
+            <option value="9" {% if student.performance == "9"%}selected{% endif%}}>9</option>
+            <option value="10" {% if student.performance == "10"%}selected{% endif%}}>10</option>
+            <option value="11" {% if student.performance == "11"%}selected{% endif%}}>11</option>
+            <option value="12" {% if student.performance == "12"%}selected{% endif%}}>12</option>
+        </select><br>
         <label for="payment_status">Оплатил/не оплатил обучение:</label>
         <input type="checkbox" name="payment_status" {% if student.payment_status %}checked{% endif %}><br>
         <label for="image">Загрузить изображение:</label>
-        <input type="file" name="image"><br>
+        <input class="image" type="file" name="image"><br>
         <button type="submit">Сохранить</button>
+        <a href="{% url 'students_list' %}">Вернуться к списку учащихся</a>
+    </div>
     </form>
 {% endblock %}

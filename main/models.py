@@ -14,12 +14,27 @@ class Student(models.Model):
         ('violin', 'Скрипка'),
     ]
 
+    GRADES_CHOICES = [
+        ('1', '1'),
+        ('2', '2'),
+        ('3', '3'),
+        ('4', '4'),
+        ('5', '5'),
+        ('6', '6'),
+        ('7', '7'),
+        ('8', '8'),
+        ('9', '9'),
+        ('10', '10'),
+        ('11', '11'),
+        ('12', '12'),
+    ]
+
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     age = models.IntegerField()
-    course = models.CharField(max_length=2, choices=COURSES_CHOICES)
-    instrument = models.CharField(max_length=10, choices=INSTRUMENT_CHOICES)
-    performance = models.PositiveIntegerField(default=1, help_text='От 1 до 12')
+    course = models.CharField(max_length=255, choices=COURSES_CHOICES)
+    instrument = models.CharField(max_length=255, choices=INSTRUMENT_CHOICES)
+    performance = models.CharField(max_length=255, choices=GRADES_CHOICES)
     payment_status = models.BooleanField(default=False)
     image = models.ImageField(upload_to='student_images/', blank=True, null=True)
 

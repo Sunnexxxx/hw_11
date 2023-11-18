@@ -4,17 +4,20 @@
 
 {% block content %}
     <h1>Список учащихся</h1>
-    <ul>
+    <div class="content">
         {% for student in students %}
-            <li>
-                 {% if student.image %}
-            <img src="{{ student.image.url }}" alt="{{ student.first_name }} {{ student.last_name }}" style="max-width: 100px; max-height: 100px;">
-        {% else %}
-            <img src="/media/student_images/9TyQDVT0.jpg" alt="No Image" style="max-width: 100px; max-height: 100px;">
-        {% endif %}
-                {{ student.first_name }} {{ student.last_name }} - <a href="{% url 'edit_student' student.id %}">Редактировать</a>
-            </li>
+            <div class="list">
+                <p>
+                {% if student.image %}
+                <img src="{{ student.image.url }}" alt="{{ student.first_name }} {{ student.last_name }}" style="max-width: 100px; max-height: 100px;">
+                {% else %}
+                    <img src="/media/student_images/9TyQDVT0.jpg" alt="No Image" style="max-width: 100px; max-height: 100px;">
+                {% endif %}
+                    {{ student.first_name }} {{ student.last_name }}  <a href="{% url 'edit_student' student.id %}">Редактировать</a>
+                    <a href="{% url 'student_detail' student.id %}">Данные</a>
+                </p>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
     <a href="{% url 'create_student' %}">Добавить учащегося</a>
 {% endblock %}
