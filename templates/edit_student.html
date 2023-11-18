@@ -21,9 +21,9 @@
         </select><br>
         <label for="instrument">Музыкальный инструмент:</label>
         <select name="instrument" required>
-            <option value="piano" {% if student.instrument == "piano" %}selected{% endif %}>Пианино</option>
-            <option value="guitar" {% if student.instrument == "guitar" %}selected{% endif %}>Гитара</option>
-            <option value="violin" {% if student.instrument == "violin" %}selected{% endif %}>Скрипка</option>
+            <option value="Пианино" {% if student.instrument == "Пианино" %}selected{% endif %}>Пианино</option>
+            <option value="Гитара" {% if student.instrument == "Гитара" %}selected{% endif %}>Гитара</option>
+            <option value="Скрипка" {% if student.instrument == "Скрипка" %}selected{% endif %}>Скрипка</option>
         </select><br>
         <label for="performance">Успеваемость:</label>
         <select name="performance" required>

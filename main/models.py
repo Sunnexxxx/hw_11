@@ -9,9 +9,9 @@ class Student(models.Model):
     ]
 
     INSTRUMENT_CHOICES = [
-        ('piano', 'Пианино'),
-        ('guitar', 'Гитара'),
-        ('violin', 'Скрипка'),
+        ('Пианино', 'Пианино'),
+        ('Гитара', 'Гитара'),
+        ('Скрипка', 'Скрипка'),
     ]
 
     GRADES_CHOICES = [
